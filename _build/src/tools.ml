@@ -7,4 +7,6 @@ let gmap (gr : 'a graph) (f :('a -> 'b)) =
   e_fold gr g (clone_nodes gr) 
 
 
-let add_arc g id1 id2 n = assert false
+let add_arc g id1 id2 n = match (find_arc g id1 id2) with 
+| None ->  new_arc g id1 id2 n
+| Some x -> new_arc g id1 id2 (x+n)  
