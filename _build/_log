@@ -1,0 +1,20 @@
+### Starting build.
+# Target: src/tools.mli.depends, tags: { extension:mli, file:src/tools.mli, include, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/tools.mli > src/tools.mli.depends # cached
+# Target: src/graph.mli.depends, tags: { extension:mli, file:src/graph.mli, include, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/graph.mli > src/graph.mli.depends # cached
+# Target: src/graph.cmi, tags: { byte, compile, extension:mli, file:src/graph.mli, include, interf, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -c -I src -o src/graph.cmi src/graph.mli # cached
+# Target: src/tools.cmi, tags: { byte, compile, extension:mli, file:src/tools.mli, include, interf, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -c -I src -o src/tools.cmi src/tools.mli # cached
+# Target: src/tools.ml.depends, tags: { extension:ml, file:src/tools.ml, include, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/tools.ml > src/tools.ml.depends
+# Target: src/tools.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/tools.cmo, file:src/tools.ml, implem, include, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -c -I src -o src/tools.cmo src/tools.ml
+# Target: src/graph.ml.depends, tags: { extension:ml, file:src/graph.ml, include, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/graph.ml > src/graph.ml.depends # cached
+# Target: src/graph.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/graph.cmo, file:src/graph.ml, implem, include, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -c -I src -o src/graph.cmo src/graph.ml
+# Target: src/tools.byte, tags: { byte, dont_link_with, extension:byte, file:src/tools.byte, include, link, ocaml, program, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -I src src/graph.cmo src/tools.cmo -o src/tools.byte
+# Compilation successful.
