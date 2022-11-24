@@ -28,8 +28,8 @@ let () =
   (* Open file *)
   let graph = from_file infile in
 
+  (*let add_letter s = s^s in*)
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph in
-
+  let () = write_file outfile (gmap (add_arc (gmap graph int_of_string) 0 2 12) string_of_int) in
   ()
 
