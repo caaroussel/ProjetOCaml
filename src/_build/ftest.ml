@@ -36,13 +36,11 @@ let () =
   ()
   *)
 
-  let test = profondeur graph (4,"0") in 
+  let test = profondeur graph (0 ,"0") in 
   
-  let testpath = find_path graph (1,"0") (12,"0") in 
-
   let rec pp t = 
     match t with
-    | [] -> Printf.printf "%s\n " "FIN "
-    | head::tail -> let (node,lab) = head in Printf.printf "%d  ----  %s   \n" node lab ; pp tail
+    | [] -> Printf.printf "%s" "FIN"
+    | head::tail -> Printf.printf "%d  \n" head ; pp tail
 
-  in pp testpath
+  in pp test
