@@ -1,5 +1,7 @@
 open Gfile
 open Tools 
+open FordFulk
+
 let () =
 
   (* Check the number of command-line arguments *)
@@ -30,6 +32,17 @@ let () =
 
   (*let add_letter s = s^s in*)
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile (gmap (add_arc (gmap graph int_of_string) 0 2 12) string_of_int) in
+ (* let () = write_file outfile (gmap (add_arc (gmap graph int_of_string) 0 2 12) string_of_int) in
   ()
+  *)
 
+  let test = profondeur graph (4,"0") in 
+  
+  let testpath = find_path graph (1,"0") (12,"0") in 
+
+  let rec pp t = 
+    match t with
+    | [] -> Printf.printf "%s\n " "FIN "
+    | head::tail -> let (node,lab) = head in Printf.printf "%d  ----  %s   \n" node lab ; pp tail
+
+  in pp testpath
