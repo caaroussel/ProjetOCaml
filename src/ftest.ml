@@ -23,26 +23,23 @@ let () =
   and outfile = Sys.argv.(4)
   
   (* These command-line arguments are not used for the moment. *)
-  and _source = int_of_string Sys.argv.(2)
-  and _sink = int_of_string Sys.argv.(3)
+  and source = int_of_string Sys.argv.(2)
+  and sink = int_of_string Sys.argv.(3)
   in
 
   (* Open file *)
   let graph = from_file infile in
 
-  (*let add_letter s = s^s in*)
-  (* Rewrite the graph that has been read. *)
- (* let () = write_file outfile (gmap (add_arc (gmap graph int_of_string) 0 2 12) string_of_int) in
-  ()
-  *)
+  let int_graph = gmap graph int_of_string in 
 
-  let test = profondeur graph (4,"0") in 
+
+  (*let test = profondeur graph (4,0) in *)
   
-  let testpath = find_path graph (1,"0") (12,"0") in 
+  let testpath = find_path int_graph (source,0) (sink,0) in 
 
   let rec pp t = 
     match t with
     | [] -> Printf.printf "%s\n " "FIN "
-    | head::tail -> let (node,lab) = head in Printf.printf "%d  ----  %s   \n" node lab ; pp tail
+    | head::tail -> let (node,lab) = head in Printf.printf "%d  ----  %d   \n" node lab ; pp tail
 
   in pp testpath
