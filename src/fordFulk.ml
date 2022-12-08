@@ -1,4 +1,5 @@
 open Graph
+open Tools
 
 let find_path gr s p = 
   let (dest,_) = p in
@@ -29,20 +30,20 @@ let get_flow graph path =
   
 let upd_graph graph path flot =
   let rec loop graph path flot = match path with
-    |(i1,_)::(i2,_)::rest-> 
-      add_arc graph i1 i2 -flot
-      add_arc graph i2 i flot
-      loop graph (i2,f2)::rest
+    |(i1,_)::(i2,f2)::rest-> 
+      let graph1 = add_arc graph i1 i2 (-flot) in 
+      let graph2 = add_arc graph1 i2 i1 flot in 
+      loop graph2 ((i2,f2)::rest) flot
     |(i,_)::[]-> graph
+    | [] -> assert false
     in loop graph path flot
-
 
 let fordFulkerson graph source puit =
   let rec loop graph s p = match find_path graph s p with
     | []-> graph
     | path ->loop (upd_graph graph path (get_flow graph path)) s p
   in 
-  loop graph s p
+  loop graph source puit
   (* bon mais pas résultat final il faut revenir a un graph classique qui contient des arcs normaux pas un graph d'écart*)
 
 

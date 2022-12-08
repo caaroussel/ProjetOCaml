@@ -9,6 +9,6 @@ val get_flow: int graph -> (id * int) list -> int
 
 val upd_graph: int graph -> (id * int) list -> int -> int graph
 
-val fordFulkerson int graph -> (id * int) -> (id * int) ->int graph
+val fordFulkerson: int graph -> (id * int) -> (id * int) -> int graph
 
 

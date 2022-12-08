@@ -1,4 +1,5 @@
 open Graph
+open Tools
 
 let find_path gr s p = 
   let (dest,_) = p in
@@ -20,26 +21,30 @@ let find_path gr s p =
 in if s = p then [s]
 else let (head,_) = s in search [s] (out_arcs gr head)
 
+let get_flow graph path =
+  let rec loop graph path flot = match path with 
+    |[]->flot
+    |(_,f)::rest-> loop graph rest (min f flot)
+  in
+  loop graph path max_int
+  
+let upd_graph graph path flot =
+  let rec loop graph path flot = match path with
+    |(i1,_)::(i2,f2)::rest-> 
+      let graph1 = add_arc graph i1 i2 (-flot) in 
+      let graph2 = add_arc graph1 i2 i1 flot in 
+      loop graph2 ((i2,f2)::rest) flot
+    |(i,_)::[]-> graph
+    | [] -> assert false
+    in loop graph path flot
 
-
-let profondeur gr s =
-  let rec search visited = function
-  | [] -> visited
-  | (head,_)::tail -> 
-    if List.mem head visited then search visited tail
-    else search (head::visited) (List.append tail (out_arcs gr head))
-  in search [] [s]
-
-  let get_flow graph path =
-    let rec loop graph path flot = match path with
-    |[] -> flot
-    |(_,f)::rest -> loop graph rest (min f flot)
-  in loop graph path max_int
-
-(**)
-let upd_graph graph path flot origin=assert false
-  (*let rec loop graph path flot origin = match path with
-  |[]*)
+let fordFulkerson graph source puit =
+  let rec loop graph s p = match find_path graph s p with
+    | []-> graph
+    | path ->loop (upd_graph graph path (get_flow graph path)) s p
+  in 
+  loop graph source puit
+  (* bon mais pas résultat final il faut revenir a un graph classique qui contient des arcs normaux pas un graph d'écart*)
 
 
 

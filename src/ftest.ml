@@ -32,14 +32,32 @@ let () =
 
   let int_graph = gmap graph int_of_string in 
 
-
+ (*
   (*let test = profondeur graph (4,0) in *)
   
-  let testpath = find_path int_graph (source,0) (sink,0) in 
+  let testpath = find_path int_graph (source,max_int) (sink,max_int) in 
 
+  
   let rec pp t = 
     match t with
     | [] -> Printf.printf "%s\n " "FIN "
     | head::tail -> let (node,lab) = head in Printf.printf "%d  ----  %d   \n" node lab ; pp tail
 
-  in pp testpath
+  in pp testpath;
+
+  
+  let flot = (get_flow int_graph testpath) in 
+  Printf.printf "Flot min = %d \n" flot ;
+
+  let test_upd = upd_graph int_graph testpath flot in write_file outfile (gmap test_upd string_of_int);
+ *)
+
+ (*
+  let test_addarc = add_arc int_graph source sink 10 in
+
+  write_file outfile (gmap test_addarc string_of_int);
+*)
+
+let fulk = (fordFulkerson int_graph (source,max_int) (sink,max_int)) in write_file outfile (gmap fulk string_of_int);
+
+export (outfile^".dot") (gmap fulk string_of_int)

@@ -19,34 +19,24 @@
 /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -c -I src -o src/tools.cmi src/tools.mli # cached
 # Target: src/ftest.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/ftest.cmo, file:src/ftest.ml, implem, include, ocaml, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -c -I src -o src/ftest.cmo src/ftest.ml
-+ /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlc.opt -c -I src -o src/ftest.cmo src/ftest.ml
-File "src/ftest.ml", line 23, characters 6-13:
-23 |   and outfile = Sys.argv.(4)
-           ^^^^^^^
-Warning 26 [unused-var]: unused variable outfile.
 # Target: src/fordFulk.ml.depends, tags: { extension:ml, file:src/fordFulk.ml, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/fordFulk.ml > src/fordFulk.ml.depends
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/fordFulk.ml > src/fordFulk.ml.depends # cached
 # Target: src/graph.ml.depends, tags: { extension:ml, file:src/graph.ml, include, ocaml, ocamldep, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/graph.ml > src/graph.ml.depends # cached
 # Target: src/graph.cmx, tags: { compile, extension:cmx, extension:ml, file:src/graph.cmx, file:src/graph.ml, implem, include, native, ocaml, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/graph.cmx src/graph.ml # cached
-# Target: src/gfile.ml.depends, tags: { extension:ml, file:src/gfile.ml, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/gfile.ml > src/gfile.ml.depends # cached
-# Target: src/gfile.cmx, tags: { compile, extension:cmx, extension:ml, file:src/gfile.cmx, file:src/gfile.ml, implem, include, native, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/gfile.cmx src/gfile.ml # cached
 # Target: src/tools.ml.depends, tags: { extension:ml, file:src/tools.ml, include, ocaml, ocamldep, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/tools.ml > src/tools.ml.depends # cached
 # Target: src/tools.cmx, tags: { compile, extension:cmx, extension:ml, file:src/tools.cmx, file:src/tools.ml, implem, include, native, ocaml, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/tools.cmx src/tools.ml # cached
 # Target: src/fordFulk.cmx, tags: { compile, extension:cmx, extension:ml, file:src/fordFulk.cmx, file:src/fordFulk.ml, implem, include, native, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/fordFulk.cmx src/fordFulk.ml
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/fordFulk.cmx src/fordFulk.ml # cached
+# Target: src/gfile.ml.depends, tags: { extension:ml, file:src/gfile.ml, include, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamldep.opt -modules src/gfile.ml > src/gfile.ml.depends # cached
+# Target: src/gfile.cmx, tags: { compile, extension:cmx, extension:ml, file:src/gfile.cmx, file:src/gfile.ml, implem, include, native, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/gfile.cmx src/gfile.ml # cached
 # Target: src/ftest.cmx, tags: { compile, extension:cmx, extension:ml, file:src/ftest.cmx, file:src/ftest.ml, implem, include, native, ocaml, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/ftest.cmx src/ftest.ml
-+ /mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -c -I src -o src/ftest.cmx src/ftest.ml
-File "src/ftest.ml", line 23, characters 6-13:
-23 |   and outfile = Sys.argv.(4)
-           ^^^^^^^
-Warning 26 [unused-var]: unused variable outfile.
 # Target: src/ftest.native, tags: { dont_link_with, extension:native, file:src/ftest.native, include, link, native, ocaml, program, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -I src src/graph.cmx src/fordFulk.cmx src/gfile.cmx src/tools.cmx src/ftest.cmx -o src/ftest.native
+/mnt/commetud/GEI/OCaml/.opam/4.14.0/bin/ocamlopt.opt -I src src/graph.cmx src/tools.cmx src/fordFulk.cmx src/gfile.cmx src/ftest.cmx -o src/ftest.native
 # Compilation successful.
