@@ -44,27 +44,13 @@ let fordFulkerson graph source puit =
     | path ->loop (upd_graph graph path (get_flow graph path)) s p
   in 
   loop graph source puit
-
-  
-let get_final_string_graph (init_graph: int graph) (ff_graph: int graph) = 
-
-  let create_arcs init_graph from_id to_id flow =
-
-    match find_arc init_graph to_id from_id with 
-    | Some(capacity) -> new_arc (init_graph) (to_id) (from_id) (flow ^ "/" ^ capacity )
-    | None -> init_graph
-  in
+  (* bon mais pas résultat final il faut revenir a un graph classique qui contient des arcs normaux pas un graph d'écart*)
 
 
-  let create_null_flow_arcs final_graph from_id to_id capacity =
 
-    if String.contains_from capacity 0 '/' then final_graph
-    else new_arc (final_graph) (from_id) (to_id) ("0/" ^ capacity )
-  in
 
-  let string_ff_graph = (gmap ff_graph string_of_int) in 
-  let final_graph = e_fold string_ff_graph create_arcs (gmap init_graph string_of_int) in
-  e_fold final_graph create_null_flow_arcs final_graph
+
+
 
 
 

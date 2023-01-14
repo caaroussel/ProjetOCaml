@@ -58,10 +58,6 @@ let () =
   write_file outfile (gmap test_addarc string_of_int);
 *)
 
-let fulk = (fordFulkerson int_graph (source,max_int) (sink,max_int)) in 
-let bongraph =  get_final_string_graph int_graph fulk in
+let fulk = (fordFulkerson int_graph (source,max_int) (sink,max_int)) in write_file outfile (gmap fulk string_of_int);
 
-write_file outfile  bongraph ;
-
-export (outfile^".dot") bongraph 
-
+export (outfile^".dot") (gmap fulk string_of_int)

@@ -11,4 +11,4 @@ val upd_graph: int graph -> (id * int) list -> int -> int graph
 
 val fordFulkerson: int graph -> (id * int) -> (id * int) -> int graph
 
-
+val get_final_string_graph: int graph -> int graph -> string graph
