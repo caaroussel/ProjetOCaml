@@ -44,46 +44,20 @@ let fordFulkerson graph source puit =
     | path ->loop (upd_graph graph path (get_flow graph path)) s p
   in 
   loop graph source puit
-  (* bon mais pas résultat final il faut revenir a un graph classique qui contient des arcs normaux pas un graph d'écart*)
 
-
-(*
-
-let fonction_appliquée_a_toute_les_listes_out_arcs id lout_arcs = 
-  let rec loop id lout_arcs =
-    match lout_arcs with
-    | [] -> 
-    | (id_dest,lab)::rest-> 
-      match (find_arc graph_result id_dest id) with
-      | None -> new_arc graph_final id id_dest ("0/"^string_of_int(lab)) , loop id rest
-      | Some lab_retour -> new arc graph_final id id_dest (string_of_int(lab_retour)^string_of_int(lab_retour+lab)) , loop id rest
-      
-in
-loop id lout_arcs
-              
-
-    let func_noeud graph_initial id = match out_arcs graph_initial id with 
-      | (id1,x)::->
-    n_iter graph_initial func_noeud 
   
-*)
-
-
-
 let get_final_string_graph (init_graph: int graph) (ff_graph: int graph) = 
 
-  (* For a given flow arc, will create the flow/capacity arc on the initial graph *)
   let create_arcs init_graph from_id to_id flow =
-    (* The arcs containing the flow are the ones that are in the opposite directions
-       from the arcs inside of the initial graph *)
+
     match find_arc init_graph to_id from_id with 
     | Some(capacity) -> new_arc (init_graph) (to_id) (from_id) (flow ^ "/" ^ capacity )
     | None -> init_graph
   in
 
-  (* For the arcs with no flow going through them, will create a 0/capacity label *)
+
   let create_null_flow_arcs final_graph from_id to_id capacity =
-    (* The arcs with no flow are the ones that haven't changed in the inital graph, they dont contain a '/' yet *)
+
     if String.contains_from capacity 0 '/' then final_graph
     else new_arc (final_graph) (from_id) (to_id) ("0/" ^ capacity )
   in
