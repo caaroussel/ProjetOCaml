@@ -1,7 +1,7 @@
 open Graph
 open FordFulk
 
-
+(*voir le fichier mli pour avoir une explication de ce que fait chaque fonction*)
 let duePerPerson list_users = 
   let rec loop list_users acu1 acu2 = 
     match list_users with 

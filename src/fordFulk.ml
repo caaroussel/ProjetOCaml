@@ -1,6 +1,8 @@
 open Graph
 open Tools
 
+(*voir le fichier mli pour avoir des informations sur ce que font chaque fonction*)
+
 let find_path gr s p = 
   let (dest,_) = p in
 
